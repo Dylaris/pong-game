@@ -2,5 +2,7 @@
 
 set -xe
 
-gcc -Wall -Wextra -o main main.c $(pkg-config raylib --cflags --libs)
-./main
+gcc -Wall -Wextra -o main main.c            \
+    -I./raylib-5.5_linux_amd64/include      \
+    -L./raylib-5.5_linux_amd64/lib -lraylib \
+    -Wl,-rpath=./raylib-5.5_linux_amd64/lib
